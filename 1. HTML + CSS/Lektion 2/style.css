@@ -1,0 +1,34 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+nav{
+    margin: 5px;
+    height: 50px;
+}
+
+footer {
+    margin: 5px;
+    padding: 5px;
+    
+}
+
+nav, footer, .left, aside, section, article{
+    padding: 10px;
+    border: 1px solid black;
+}
+
+.content{
+    display: flex;
+    justify-content:center;
+    gap: 10px;
+}
+
+.right{
+    display: flex;
+    width: min-content;
+}
+
+section{
+    margin-bottom: 10%;
+}
