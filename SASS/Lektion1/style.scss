@@ -1,0 +1,54 @@
+$mainColor: #283618;
+$secondaryColor: #606c38;
+$textColor: #fefae0;
+$accentColor: #bc6c25;
+
+*{
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+.container{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10%;
+}
+
+@mixin btnStyle{
+    padding: 25px;
+    border: none;
+    border-radius: 10px;
+    color: $textColor;
+    background-color: $mainColor;
+    font-size: 15px;
+}
+
+@mixin pointerEffect{
+    cursor: pointer;
+}
+
+.button{
+    @include btnStyle();
+}
+
+.primary-button{
+    @extend .button;
+    background-color: $secondaryColor;
+}
+
+
+.button:hover{
+    @include pointerEffect();
+    background-color: $secondaryColor;
+}
+
+.primary-button:hover{
+    @include pointerEffect();
+    background-color: #fff;
+    color: $mainColor;
+    outline: 2px solid $secondaryColor;
+}
