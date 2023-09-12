@@ -1,0 +1,38 @@
+*
+    padding: 0
+    margin: 0
+    box-sizing: border-box
+    font-family: sans-serif
+    
+.container
+    height: 100vh
+    display: flex
+    justify-content: center
+    align-items: center  
+    gap: 50px
+    flex-wrap: wrap
+
+@mixin card-style($background, $text, $border)
+    display: flex
+    gap: 20px
+    background-color: $background
+    color: $text
+    border: 1px solid $border
+    padding: 15px
+    border-radius: 15px
+img
+    width: 50px
+    height: 50px
+.card1
+    @include card-style(#a8dadc, #1d3557 , #457b9d )
+
+.card2
+    @include card-style(#778da9 , #1b263b , #415a77)
+
+.card3
+    @include card-style(#ffe6a7 , #432818 , #bb9457)
+    
+
+    
+
+    
