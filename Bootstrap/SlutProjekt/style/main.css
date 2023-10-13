@@ -1,0 +1,30 @@
+body {
+  background-color: #26335D;
+  font-family: "Montserrat";
+  font-weight: bold;
+  color: #fff;
+}
+
+header {
+  background-image: url("../img/headerBg.jpg");
+  background-size: cover;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.btn-primary {
+  padding: 1rem 2rem;
+  background-color: #8D5CF6;
+}
+
+.display-2 {
+  font-weight: 900;
+}
+
+.headerContent {
+  margin-top: 5rem;
+}
+
+/*# sourceMappingURL=main.css.map */
