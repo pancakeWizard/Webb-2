@@ -1,13 +1,15 @@
 body {
   background-color: #26335D;
   font-family: "Montserrat";
-  font-weight: bold;
+  /* font-weight: bold; */
   color: #fff;
 }
 
 header {
-  background-image: url("../img/headerBg.jpg");
+  background-image: url("../img/headerBg.png");
+  background-color: #26335D;
   background-size: cover;
+  height: 100vh;
 }
 
 ul {
@@ -25,6 +27,23 @@ ul {
 
 .headerContent {
   margin-top: 5rem;
+}
+
+.btn-light{
+  background: none;
+  border: 1px solid #fff;
+}
+
+hr{
+  border: none;
+  background-color: #E74040;
+  height: 2px;
+  width: 50px;
+}
+
+.card img{
+  width: 50%;
+  height: 50%;
 }
 
 /*# sourceMappingURL=main.css.map */
