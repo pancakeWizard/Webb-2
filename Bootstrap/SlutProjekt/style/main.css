@@ -9,7 +9,7 @@ header {
   background-image: url("../img/headerBg.png");
   background-color: #26335D;
   background-size: cover;
-  height: 100vh;
+  height: 115vh;
 }
 
 ul {
@@ -41,9 +41,64 @@ hr{
   width: 50px;
 }
 
-.card img{
-  width: 50%;
-  height: 50%;
+.card{
+  border-radius: 0;
 }
+
+.card img{
+  width: 40%;
+  height: 40%;
+}
+
+.header-cards{
+  margin-top: -7rem;
+}
+
+.expert-section{
+  margin-top: 20rem;
+}
+
+.main-img{
+  position: absolute;
+}
+
+.secondary-img{
+  position: relative;
+}
+
+.top-left{
+  top: 8rem;
+  left: -4rem;
+}
+
+.bottom-left{
+  top: 21rem;
+  right: 10rem;
+}
+
+.center-right{
+  top: 12rem;
+  left: 2rem;
+}
+
+.line{
+  display: inline-block;
+  background-color: #E74040;
+  width: 4rem;
+  height: 4px;
+}
+
+.super-link{
+  color: #8D5CF6;
+}
+
+.super-link img{
+  padding: 1rem;
+}
+
+.package-section{
+  margin-top: 20rem;
+}
+
 
 /*# sourceMappingURL=main.css.map */
