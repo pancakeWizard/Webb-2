@@ -10,7 +10,7 @@ pToAppend.innerHTML = "Ett nytt barn har fötts"
 blockEl.appendChild(pToAppend)
 
 let headerToChange = document.querySelector("#barn")
-headerToChange.innerHTML = "hej"
+headerToChange.innerHTML += " hej"
 
 mha.remove();
 
