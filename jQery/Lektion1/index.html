@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lektion2</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            let upp1_div = $("#upp1_div");
+            let upp1_btn = $("#upp1_btn")
+            upp1_btn.click(function(){
+                upp1_div.attr('style', 'display: block;')
+            });
+
+            let upp2_input = $("#upp2_input")
+            upp2_input.val('alert meddelande')
+            let upp2_btn = $("#upp2_btn")
+            upp2_btn.click(function(){
+                let alertText = upp2_input.val()
+                alert(alertText)
+            })
+
+            let upp3_ps = $(".upp3_p")
+            let upp3_btn = $("#upp3_btn")
+            let upp3_btn2 = $("#upp3_btn2")
+            upp3_btn.click(function(){
+                upp3_ps.toggleClass("hover")
+            })
+
+            let upp4_div = $("#upp4_div")
+            let upp4_btn = $("#upp4_btn")
+            upp4_btn.click(function(){
+                upp4_div.animate({
+                    top: '30px'
+                })
+            })
+
+            let upp5_btn = $("#upp5_btn")
+            let upp5_img = $("#upp5_img")
+            upp5_btn.click(function(){
+                if (upp5_img.attr("src") != "https://ih1.redbubble.net/image.755405435.0582/st,small,507x507-pad,600x600,f8f8f8.u1.jpg")
+                {
+                    upp5_img.attr("src", "https://ih1.redbubble.net/image.755405435.0582/st,small,507x507-pad,600x600,f8f8f8.u1.jpg")
+                }
+                else
+                {
+                    upp5_img.attr("src", "https://cdn.ipetitions.com/user-images/petitions/pepe-the-frog-emoji/oXygVgLASySrjkBlfd0J_image.jpg")
+                }
+                
+            })
+        });
+    </script>
+
+    <style>
+        .hover:hover{
+            color: brown;
+        }
+        #upp4_div{
+            position: relative;
+            width: 50px;
+            height: 50px;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <div id="upp1_div" style="display: none;">
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+    </div>  
+    <button id="upp1_btn">Fylla i en div</button>
+    <br>
+    <form action="" id="upp2_form">
+        <input type="text" id="upp2_input">
+        <button id="upp2_btn">Visa alert</button>
+    </form>
+    <p class="upp3_p">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi, sunt.</p>
+    <p class="upp3_p">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi, sunt.</p>
+    <p class="upp3_p">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi, sunt.</p>
+    <p class="upp3_p">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi, sunt.</p>
+    <button id="upp3_btn">Lägga till/Ta bort klasser</button>
+
+    <div id="upp4_div">
+
+    </div>
+    <button id="upp4_btn">Anim</button>
+
+    <div id="upp5_div">
+        <img src="https://cdn.ipetitions.com/user-images/petitions/pepe-the-frog-emoji/oXygVgLASySrjkBlfd0J_image.jpg" alt="" id="upp5_img" width="150px" height="150px">
+        <button id="upp5_btn">Ändra bild</button>
+    </div>
+</body>
+</html>

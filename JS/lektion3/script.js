@@ -7,7 +7,4 @@ document.addEventListener("DOMContentLoaded", function(){
         newTaskElement.innerHTML = newTask;
         taskList.appendChild(newTaskElement)
     })
-    
-
-
 })
