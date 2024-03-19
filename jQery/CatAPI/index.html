@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            let cats = $.get('https://api.thecatapi.com/v1/images/search?limit=10', function(data){
+                console.log(data)
+                console.log(data[0].id)
+                let desc = ''
+                data.forEach(function(cat, i) {
+                    $('body').append('<div id="'+ i +'"> <img src="'+ cat.url +'" alt=""> </div>')
+                    let catBreeds = $.get('https://api.thecatapi.com/v1/images/' + cat.id, function(breeds)
+                    {
+                        try{
+                            desc = breeds.breeds[0].description
+                            console.log(breeds.breeds[0].description)
+                        }
+                        catch
+                        {
+                            desc = undefined
+                        }
+                        if (desc)
+                        {
+                            $('#'+i).append('<p>'+desc+'</p>')
+                        }
+                       
+                    })
+                });
+            })
+        });
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
