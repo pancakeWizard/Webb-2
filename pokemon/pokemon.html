@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function(){
+            for(i = 0; i < 20; i++)
+            {
+                let pokemonData = $.get('https://pokeapi.co/api/v2/pokemon/'+(i+1), function(data){
+                    $('body').append(`
+                    <div class="card">
+                        <div class="card-header">
+                        Info for pokemon
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">${data.name}</h5>
+                            <ul class="abilitiesList_${data.id} list-group">
+                            </ul>
+                            <a href="#" class="btn btn-primary">Read more</a>
+                        </div>
+                    </div>`)
+                    for(j = 0; j < data.abilities.length; j++)
+                    {
+                        console.log(data.abilities.length)
+                        console.log(data.abilities[j].ability.name)
+                        $('.abilitiesList_' + data.id).append(`
+                            <button class="ability_${data.abilities[j].ability.name} btn btn-light"><li class="list-group-item">${data.abilities[j].ability.name}</li></button>
+                            
+                        `)
+                    }
+                    
+                });
+            }
+        });
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
