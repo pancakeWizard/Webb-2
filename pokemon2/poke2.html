@@ -13,39 +13,89 @@
         $(document).ready(function(){
             let startValue = 1
             getPokemonTable(startValue)
+            console.log(startValue)
+            $("#pokeMore").click(function(){
+                getPokemonTable(startValue + 20)
+                startValue = startValue + 20
+            })
             
         })
         function getPokemonTable(start){
-            for(i=start; i < start+20; i++)
+            for(let i = start; i < start+20; i++)
             {
-                console.log(i)
+                let index = i
                 let pokemonData = $.get('https://pokeapi.co/api/v2/pokemon/'+ i, function(data){
+                    let pokeType = ""
+                    for (j = 0; j < data.types.length; j++)
+                    {
+                        if(j != data.types.length-1)
+                        {
+                            pokeType += `${data.types[j].type.name}, `
+                        }
+                        else
+                        { 
+                            pokeType += `${data.types[j].type.name}`
+                        }
+                        
+                    }
                     $("#tableBody").append(` 
                     <tr>
-                        <th scope="row">${i}</th>
+                        <th scope="row">${index}</th>
                         <td>${data.name}</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
+                        <td>${pokeType}</td>
+                        <td><button id="poke_${index}" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#pokeDetailsModal">Read more</button></td>
                     </tr>
                     `)
+                    $(`#poke_${index}`).click(function(){
+                        $("#modal-title").html(data.name)
+                        $("#pokeImg").attr("src", data.sprites.other['official-artwork'].front_default)
+                    })
                 })
+                
             }
         }
     </script>
 </head>
 <body>
+    <div class="modal fade" id="pokeDetailsModal" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modal-title"></h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="card" style="width: 18rem;">
+                    <img src="" class="card-img-top" alt="" id="pokeImg">
+                    <div class="card-body">
+                      <p class="card-text"></p>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>    
+      </div>
+    <div class="container">
+        <div class="row">
+            <div class="content m-3 d-flex justify-content-end">
+                <button class="btn btn-primary" id="pokeMore">+20 pokemons</button>
+            </div>
+        </div>
+    </div>
+    
     <table class="table">
         <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
+            <th scope="col">Name</th>
+            <th scope="col">Types</th>
+            <th scope="col"></th>
           </tr>
         </thead>
         <tbody id="tableBody">
           
         </tbody>
       </table>
+      
 </body>
 </html>
